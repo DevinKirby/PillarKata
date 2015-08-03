@@ -14,5 +14,9 @@ public class RomanTests {
 	public void arabicNumberThreeReturnsIII() throws Exception {
 		assertEquals("III", Roman.convert(3));
 	}
+	@Test
+	public void arabicNumberNineReturnsIX() throws Exception {
+		assertEquals("IX", Roman.convert(9));
+	}
 
 }
