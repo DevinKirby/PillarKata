@@ -1,12 +1,18 @@
 package tests;
 import static org.junit.Assert.*;
+
 import org.junit.*;
+
 import RomanNumerals.Roman;
 
 public class RomanTests {
 	@Test
-	public void testName() throws Exception {
+	public void arabicNumberOneReturnsI() throws Exception {
 		assertEquals("I", Roman.convert(1));
+	}
+	@Test
+	public void arabicNumberThreeReturnsIII() throws Exception {
+		assertEquals("III", Roman.convert(3));
 	}
 
 }
