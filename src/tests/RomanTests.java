@@ -20,7 +20,7 @@ public class RomanTests {
 	}
 	@Test
 	public void arabicNumberTenSixtySixReturnsMLXVI() throws Exception {
-		assertEquals("MLXVI", 1066);
+		assertEquals("MLXVI", Roman.convert(1066));
 	}
 
 }
