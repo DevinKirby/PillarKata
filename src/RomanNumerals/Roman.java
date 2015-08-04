@@ -5,15 +5,23 @@ public class Roman {
 	public static String convert(int number){
 		int arabic = number;
 		String roman = "";
-		if(arabic / 1000 >= 1){
+		while(arabic / 1000 >= 1){
 			roman += "M";
 			arabic -= 1000;
+		}
+		if(arabic % 1000 >= 900){
+			roman += "CM";
+			arabic -= 900;
+		}
+		while(arabic / 100 >= 1){
+			roman += "C";
+			arabic -= 100;
 		}
 		if(arabic / 50 >= 1){
 			roman += "L";
 			arabic -= 50;
 		}
-		if(arabic /10 >= 1){
+		while(arabic /10 >= 1){
 			roman += "X";
 			arabic -= 10;
 		}
