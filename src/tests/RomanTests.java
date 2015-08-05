@@ -41,5 +41,10 @@ public class RomanTests {
 		roman.setArabic(39);
 		assertEquals("XXXIX", roman.convertArabicToRoman());
 	}
+	@Test
+	public void romanNumeralIReturns1() throws Exception {
+		roman.setRoman("I");
+		assertEquals(1, roman.convertRomanToArabic());
+	}
 
 }

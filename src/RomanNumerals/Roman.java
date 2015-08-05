@@ -17,6 +17,10 @@ public class Roman {
 		this.iXCM(getArabic(), 1, "I");
 		return this.getRoman();
 	}
+	public int convertRomanToArabic() {
+		int arabic = 0;
+		return arabic;
+	}
 	public void iXCM(int arabic, int divisor, String r){
 		int tempArabic = arabic;
 		String tempRoman = this.getRoman();
