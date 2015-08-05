@@ -1,43 +1,52 @@
 package RomanNumerals;
 
 public class Roman {
+	private int arabic;
+	private String roman = "";
 	
-	public static String convert(int number){
-		int arabic = number;
-		String roman = "";
-		while(arabic / 1000 >= 1){
-			roman += "M";
-			arabic -= 1000;
+	public Roman(){
+	}
+	public String convertArabicToRoman(){
+		this.iXCM(getArabic(), 1000, "M");		
+		this.vLD(getArabic(), 1000, 900, "CM");
+		this.iXCM(getArabic(), 100, "C");
+		this.vLD(getArabic(), 100, 50, "L");
+		this.iXCM(getArabic(), 10, "X");
+		this.vLD(getArabic(), 10, 9, "IX");
+		this.iXCM(getArabic(), 5, "V");
+		this.iXCM(getArabic(), 1, "I");
+		return this.getRoman();
+	}
+	public void iXCM(int arabic, int divisor, String r){
+		int tempArabic = arabic;
+		String tempRoman = this.getRoman();
+		while(tempArabic / divisor >= 1){
+			tempRoman += r;
+			tempArabic -= divisor;	
 		}
-		if(arabic % 1000 >= 900){
-			roman += "CM";
-			arabic -= 900;
+		this.setArabic(tempArabic);
+		this.setRoman(tempRoman);
+	}
+	public void vLD(int arabic, int divisor, int edge, String r){
+		int tempArabic = arabic;
+		String tempRoman = this.getRoman();
+		if(tempArabic % divisor >= edge){
+			tempRoman += r;
+			tempArabic -= edge;
 		}
-		while(arabic / 100 >= 1){
-			roman += "C";
-			arabic -= 100;
-		}
-		if(arabic / 50 >= 1){
-			roman += "L";
-			arabic -= 50;
-		}
-		while(arabic /10 >= 1){
-			roman += "X";
-			arabic -= 10;
-		}
-		if(arabic % 10 == 9){
-			roman += "IX";
-			arabic -= 9;
-		}
-		if(arabic / 5 >= 1){
-			roman += "V";
-			arabic -= 5;
-		}
-		while(arabic > 0){
-			roman += "I";
-			arabic -= 1;
-		}
+		this.setArabic(tempArabic);
+		this.setRoman(tempRoman);
+	}	
+	public int getArabic() {
+		return arabic;
+	}
+	public void setArabic(int arabic) {
+		this.arabic = arabic;
+	}
+	public String getRoman() {
 		return roman;
 	}
-
+	public void setRoman(String roman) {
+		this.roman = roman;
+	}
 }

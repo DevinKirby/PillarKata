@@ -6,25 +6,40 @@ import org.junit.*;
 import RomanNumerals.Roman;
 
 public class RomanTests {
+	Roman roman;
+	@Before
+	public void declareRomanObject(){
+		roman = new Roman();
+	}
 	@Test
 	public void arabicNumberOneReturnsI() throws Exception {
-		assertEquals("I", Roman.convert(1));
+		roman.setArabic(1);
+		assertEquals("I", roman.convertArabicToRoman());
 	}
 	@Test
 	public void arabicNumberThreeReturnsIII() throws Exception {
-		assertEquals("III", Roman.convert(3));
+		roman.setArabic(3);
+		assertEquals("III", roman.convertArabicToRoman());
 	}
 	@Test
 	public void arabicNumberNineReturnsIX() throws Exception {
-		assertEquals("IX", Roman.convert(9));
+		roman.setArabic(9);
+		assertEquals("IX", roman.convertArabicToRoman());
 	}
 	@Test
 	public void arabicNumber1066ReturnsMLXVI() throws Exception {
-		assertEquals("MLXVI", Roman.convert(1066));
+		roman.setArabic(1066);
+		assertEquals("MLXVI", roman.convertArabicToRoman());
 	}
 	@Test
 	public void arabicNumber1989ReturnsMCMLXXXIX() throws Exception {
-		assertEquals("MCMLXXXIX", Roman.convert(1989));
+		roman.setArabic(1989);
+		assertEquals("MCMLXXXIX", roman.convertArabicToRoman());
+	}
+	@Test
+	public void arabicNumber39ReturnsXXXIX() throws Exception {
+		roman.setArabic(39);
+		assertEquals("XXXIX", roman.convertArabicToRoman());
 	}
 
 }
