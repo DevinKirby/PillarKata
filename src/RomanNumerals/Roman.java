@@ -7,21 +7,28 @@ public class Roman {
 	public Roman(){
 	}
 	public String convertArabicToRoman(){
-		this.iXCM(getArabic(), 1000, "M");		
-		this.vLD(getArabic(), 1000, 900, "CM");
-		this.iXCM(getArabic(), 100, "C");
-		this.vLD(getArabic(), 100, 50, "L");
-		this.iXCM(getArabic(), 10, "X");
-		this.vLD(getArabic(), 10, 9, "IX");
-		this.iXCM(getArabic(), 5, "V");
-		this.iXCM(getArabic(), 1, "I");
+		this.repeatArToRo(getArabic(), 1000, "M");		
+		this.notRepeatArToRo(getArabic(), 1000, 900, "CM");
+		this.repeatArToRo(getArabic(), 100, "C");
+		this.notRepeatArToRo(getArabic(), 100, 50, "L");
+		this.repeatArToRo(getArabic(), 10, "X");
+		this.notRepeatArToRo(getArabic(), 10, 9, "IX");
+		this.repeatArToRo(getArabic(), 5, "V");
+		this.repeatArToRo(getArabic(), 1, "I");
 		return this.getRoman();
 	}
 	public int convertRomanToArabic() {
-		int arabic = 0;
-		return arabic;
+		String tempRoman = getRoman();
+		int tempArabic = 0;
+		if(tempRoman.equals("I")){
+			tempArabic += 1;
+		}
+		return tempArabic;
 	}
-	public void iXCM(int arabic, int divisor, String r){
+	public void sortLetter(int arabic){
+		
+	}
+	public void repeatArToRo(int arabic, int divisor, String r){
 		int tempArabic = arabic;
 		String tempRoman = this.getRoman();
 		while(tempArabic / divisor >= 1){
@@ -31,7 +38,7 @@ public class Roman {
 		this.setArabic(tempArabic);
 		this.setRoman(tempRoman);
 	}
-	public void vLD(int arabic, int divisor, int edge, String r){
+	public void notRepeatArToRo(int arabic, int divisor, int edge, String r){
 		int tempArabic = arabic;
 		String tempRoman = this.getRoman();
 		if(tempArabic % divisor >= edge){
