@@ -51,5 +51,10 @@ public class RomanTests {
 		roman.setRoman("III");
 		assertEquals(3, roman.convertRomanToArabic());
 	}
+	@Test
+	public void romanNumeralIXReturns9() throws Exception {
+		roman.setRoman("IX");
+		assertEquals(9, roman.convertRomanToArabic());
+	}
 
 }
