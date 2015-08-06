@@ -19,11 +19,21 @@ public class Roman {
 	}
 	public int convertRomanToArabic() {
 		String tempRoman = getRoman();
-		int tempArabic = 0;
-		if(tempRoman.equals("I")){
-			tempArabic += 1;
+		char[]romans = tempRoman.toCharArray();
+		int tempArabic = getArabic();
+		for (int i = 0; i < romans.length; i++) {
+			if(romans[i]=='I'){
+				tempArabic += 1;
+			}
 		}
-		return tempArabic;
+//		while(tempRoman != ""){
+//			if(tempRoman.charAt(0)=='I'){
+//				tempArabic += 1;
+//				tempRoman = tempRoman.substring(1);
+//			}
+//		}
+		this.setArabic(tempArabic);
+		return arabic;
 	}
 	public void sortLetter(int arabic){
 		
