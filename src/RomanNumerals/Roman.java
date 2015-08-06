@@ -7,38 +7,33 @@ public class Roman {
 	public Roman(){
 	}
 	public String convertArabicToRoman(){
-		this.repeatArToRo(getArabic(), 1000, "M");		
-		this.notRepeatArToRo(getArabic(), 1000, 900, "CM");
-		this.repeatArToRo(getArabic(), 100, "C");
-		this.notRepeatArToRo(getArabic(), 100, 50, "L");
-		this.repeatArToRo(getArabic(), 10, "X");
-		this.notRepeatArToRo(getArabic(), 10, 9, "IX");
-		this.repeatArToRo(getArabic(), 5, "V");
-		this.repeatArToRo(getArabic(), 1, "I");
+		this.repeatedRoman(getArabic(), 1000, "M");		
+		this.notRepeatedRoman(getArabic(), 1000, 900, "CM");
+		this.repeatedRoman(getArabic(), 100, "C");
+		this.notRepeatedRoman(getArabic(), 100, 50, "L");
+		this.repeatedRoman(getArabic(), 10, "X");
+		this.notRepeatedRoman(getArabic(), 10, 9, "IX");
+		this.repeatedRoman(getArabic(), 5, "V");
+		this.repeatedRoman(getArabic(), 1, "I");
 		return this.getRoman();
 	}
 	public int convertRomanToArabic() {
 		String tempRoman = getRoman();
-		char[]romans = tempRoman.toCharArray();
-		int tempArabic = getArabic();
-		for (int i = 0; i < romans.length; i++) {
-			if(romans[i]=='I'){
+		int tempArabic = 0;
+		while(tempRoman.length() >= 1){
+			if(tempRoman.charAt(0) == 'I' && tempRoman.charAt(1)=='X'){
+				tempArabic += 9;
+				tempRoman = tempRoman.substring(2);
+			}
+			else if(tempRoman.charAt(0) == 'I'){
 				tempArabic += 1;
+				tempRoman = tempRoman.substring(1);
 			}
 		}
-//		while(tempRoman != ""){
-//			if(tempRoman.charAt(0)=='I'){
-//				tempArabic += 1;
-//				tempRoman = tempRoman.substring(1);
-//			}
-//		}
 		this.setArabic(tempArabic);
 		return arabic;
 	}
-	public void sortLetter(int arabic){
-		
-	}
-	public void repeatArToRo(int arabic, int divisor, String r){
+	public void repeatedRoman(int arabic, int divisor, String r){
 		int tempArabic = arabic;
 		String tempRoman = this.getRoman();
 		while(tempArabic / divisor >= 1){
@@ -48,7 +43,7 @@ public class Roman {
 		this.setArabic(tempArabic);
 		this.setRoman(tempRoman);
 	}
-	public void notRepeatArToRo(int arabic, int divisor, int edge, String r){
+	public void notRepeatedRoman(int arabic, int divisor, int edge, String r){
 		int tempArabic = arabic;
 		String tempRoman = this.getRoman();
 		if(tempArabic % divisor >= edge){
